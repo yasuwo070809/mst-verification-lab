@@ -2,6 +2,8 @@
 
 CML2 (Cisco Modeling Labs, v2.10.0+build.13) 上にIOL-L2×4台で構築したMultiple Spanning Tree (MST) 検証ラボ。リージョン境界の成立条件、インスタンスごとのルートブリッジ選定と負荷分散、リンク障害時の収束、Rapid PVST+との構造的な違いを、実機(IOL-L2)への実CLI投入と実show出力の採取によって検証した。
 
+> 📋 **[スイッチパラメータシート(SW1〜SW4)を見る](https://claude.ai/artifact/XgUgNgy4Hf2yaruD1V1Vhc)** — 各スイッチのMST優先度・VLAN・インターフェース設定を1ページにまとめたHTML。ソースは [`docs/switch-parameter-sheet.html`](docs/switch-parameter-sheet.html)。
+
 ## 検証目的
 
 - MSTでVLANをインスタンスに正しくマッピングし、インスタンスごとに異なるルートブリッジ/転送パスを構成できることを確認する。
@@ -159,5 +161,6 @@ mst-verification-lab/
 └── docs/
     ├── test-plan.md
     ├── test-results.md
-    └── topology.md
+    ├── topology.md
+    └── switch-parameter-sheet.html   # SW1-4 パラメータシート(上記リンク参照)
 ```

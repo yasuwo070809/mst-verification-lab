@@ -1,0 +1,451 @@
+<!doctype html>
+<title>Switch Parameter Sheet</title>
+<meta name="description" content="mst-verification-lab: SW1-SW4 の実機コンフィグに基づくパラメータシート">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+JP:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #f3f6f7;
+    --surface: #ffffff;
+    --surface-2: #eef2f3;
+    --border: #d7dee0;
+    --border-strong: #b9c4c7;
+    --text: #142225;
+    --text-muted: #5b6c70;
+    --text-faint: #8a9a9d;
+    --accent: #0e6b64;
+    --accent-strong: #094e49;
+    --accent-soft: #e2f0ee;
+    --gold: #9c6b17;
+    --gold-soft: #f6ecd8;
+    --good: #1c7a4d;
+    --good-soft: #e3f3ea;
+    --warn: #b0540c;
+    --warn-soft: #fbebdd;
+    --off: #7a8688;
+    --off-soft: #eef1f1;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sans: "IBM Plex Sans", "IBM Plex Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --shadow: 0 1px 2px rgba(20, 34, 37, 0.06), 0 8px 24px -12px rgba(20, 34, 37, 0.18);
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1719;
+      --surface: #16211f;
+      --surface-2: #1b2725;
+      --border: #2b3a38;
+      --border-strong: #3c4e4b;
+      --text: #e7eeee;
+      --text-muted: #a3b3b1;
+      --text-faint: #71827f;
+      --accent: #4fc9bb;
+      --accent-strong: #7fdccf;
+      --accent-soft: #163430;
+      --gold: #d9a84f;
+      --gold-soft: #2f2717;
+      --good: #52c98a;
+      --good-soft: #163427;
+      --warn: #e08a4d;
+      --warn-soft: #33220f;
+      --off: #7c8c8a;
+      --off-soft: #1d2827;
+      --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1719;
+    --surface: #16211f;
+    --surface-2: #1b2725;
+    --border: #2b3a38;
+    --border-strong: #3c4e4b;
+    --text: #e7eeee;
+    --text-muted: #a3b3b1;
+    --text-faint: #71827f;
+    --accent: #4fc9bb;
+    --accent-strong: #7fdccf;
+    --accent-soft: #163430;
+    --gold: #d9a84f;
+    --gold-soft: #2f2717;
+    --good: #52c98a;
+    --good-soft: #163427;
+    --warn: #e08a4d;
+    --warn-soft: #33220f;
+    --off: #7c8c8a;
+    --off-soft: #1d2827;
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.55;
+    padding-inline: max(16px, calc((100vw - 1180px) / 2));
+    padding-block: 32px 64px;
+  }
+  h1, h2, h3 { text-wrap: balance; font-weight: 600; margin: 0; }
+  a { color: var(--accent-strong); }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+  code, .mono { font-family: var(--mono); }
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  /* ---------- header ---------- */
+  header.page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    padding-bottom: 22px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.page .title-block { max-width: 60ch; }
+  header.page h1 { font-size: 27px; margin-top: 6px; }
+  header.page p.sub { color: var(--text-muted); margin: 8px 0 0; font-size: 14.5px; }
+  .lab-facts {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 3px 18px;
+    font-family: var(--mono);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .lab-facts dt { color: var(--text-faint); }
+  .lab-facts dd { margin: 0; color: var(--text); }
+
+  /* ---------- quick jump ---------- */
+  nav.jump {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 30px;
+  }
+  nav.jump a {
+    font-family: var(--mono);
+    font-size: 12.5px;
+    text-decoration: none;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    padding: 7px 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  nav.jump a .role-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--off); flex: none; }
+  nav.jump a[data-role="root"] .role-dot { background: var(--gold); }
+  nav.jump a:hover { border-color: var(--border-strong); }
+
+  /* ---------- topology + vlan summary row ---------- */
+  section.overview {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 780px) { section.overview { grid-template-columns: 1fr; } }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px 20px;
+    box-shadow: var(--shadow);
+  }
+  .panel h2 { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 14px; }
+
+  .topo-graph { display: flex; flex-direction: column; gap: 6px; }
+  .topo-row { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px; }
+  .topo-row .node { border: 1px solid var(--border-strong); border-radius: 6px; padding: 3px 9px; background: var(--surface-2); }
+  .topo-row .wire { flex: 1; height: 1px; background: repeating-linear-gradient(90deg, var(--border-strong) 0 6px, transparent 6px 10px); position: relative; }
+  .topo-row .ifaces { color: var(--text-faint); font-size: 11.5px; }
+
+  table.vlan-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  table.vlan-table th { text-align: left; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--text-faint); font-weight: 500; padding: 0 8px 8px 0; border-bottom: 1px solid var(--border); }
+  table.vlan-table td { padding: 7px 8px 7px 0; border-bottom: 1px solid var(--border); }
+  table.vlan-table tr:last-child td { border-bottom: none; }
+  .vlan-id { font-family: var(--mono); font-weight: 600; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    padding: 2px 8px; border-radius: 100px; line-height: 1.6;
+    white-space: nowrap;
+  }
+  .badge.mst1 { background: var(--accent-soft); color: var(--accent-strong); }
+  .badge.mst2 { background: var(--gold-soft); color: var(--gold); }
+
+  /* ---------- switch cards ---------- */
+  h2.section-title { font-size: 16px; margin: 0 0 16px; padding-top: 6px; }
+  .sheet-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  @media (max-width: 900px) { .sheet-grid { grid-template-columns: 1fr; } }
+
+  .sheet {
+    scroll-margin-top: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .sheet > .sheet-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+  .sheet-head .hostname { font-family: var(--mono); font-size: 19px; font-weight: 600; }
+  .sheet-head .hostname .mac { display: block; font-size: 11px; font-weight: 400; color: var(--text-faint); margin-top: 2px; }
+  .role-pill {
+    font-family: var(--mono); font-size: 11px; font-weight: 500;
+    padding: 4px 10px; border-radius: 100px;
+    background: var(--off-soft); color: var(--off);
+    white-space: nowrap;
+  }
+  .role-pill.has-root { background: var(--gold-soft); color: var(--gold); }
+
+  .sheet-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 18px; }
+  .field-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    font-size: 13px;
+  }
+  .field-grid .k { color: var(--text-faint); font-size: 11px; letter-spacing: .04em; text-transform: uppercase; }
+  .field-grid .v { font-family: var(--mono); margin-top: 2px; }
+
+  .stp-instances { display: flex; flex-direction: column; gap: 8px; }
+  .stp-row {
+    display: grid; grid-template-columns: 60px 1fr auto; align-items: center;
+    gap: 10px; padding: 8px 10px; border-radius: 8px; background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+  .stp-row .label { font-family: var(--mono); font-size: 12px; font-weight: 600; }
+  .stp-row .prio { font-family: var(--mono); font-size: 12px; color: var(--text-muted); }
+  .stp-row .prio b { color: var(--text); font-weight: 600; }
+  .status-chip { font-family: var(--mono); font-size: 10.5px; font-weight: 600; padding: 2px 8px; border-radius: 100px; }
+  .status-chip.root { background: var(--gold-soft); color: var(--gold); }
+  .status-chip.member { background: var(--off-soft); color: var(--off); }
+
+  table.if-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  table.if-table caption { text-align: left; font-size: 11px; letter-spacing: .05em; text-transform: uppercase; color: var(--text-faint); margin-bottom: 8px; font-weight: 500; }
+  table.if-table th { text-align: left; font-weight: 500; color: var(--text-faint); font-size: 10.5px; letter-spacing: .04em; text-transform: uppercase; padding: 0 8px 6px 0; border-bottom: 1px solid var(--border); }
+  table.if-table td { font-family: var(--mono); padding: 7px 8px 7px 0; border-bottom: 1px solid var(--border); vertical-align: top; }
+  table.if-table tr:last-child td { border-bottom: none; }
+  table.if-table td.port { font-weight: 600; }
+  .up-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--good); margin-right: 6px; }
+  .down-dot { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--off); margin-right: 6px; }
+
+  .note-box {
+    font-size: 12.5px; color: var(--text-muted);
+    background: var(--warn-soft); border: 1px solid color-mix(in srgb, var(--warn) 30%, transparent);
+    border-radius: 8px; padding: 9px 12px;
+  }
+  .note-box b { color: var(--warn); font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+
+  footer.page {
+    margin-top: 44px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+    display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: space-between;
+    font-size: 12.5px; color: var(--text-faint);
+  }
+  footer.page a { color: var(--text-muted); }
+</style>
+
+<header class="page">
+  <div class="title-block">
+    <div class="eyebrow">mst-verification-lab &middot; reference</div>
+    <h1>スイッチパラメータシート</h1>
+    <p class="sub">SW1–SW4(Cisco Modeling Labs, IOL-L2 / IOS-XE 17.18)の実際の <code>show running-config</code> に基づく設定一覧。値はすべて<a href="https://github.com/yasuwo070809/mst-verification-lab/tree/main/configs" target="_blank" rel="noopener">configs/SW*.cfg</a>から採取。</p>
+  </div>
+  <dl class="lab-facts">
+    <dt>node_definition</dt><dd>ioll2-xe</dd>
+    <dt>image</dt><dd>ioll2-xe-17-18-02</dd>
+    <dt>mst region</dt><dd>CML-MST rev.1</dd>
+    <dt>lab id</dt><dd>8cd6a53c…f8360</dd>
+  </dl>
+</header>
+
+<nav class="jump" aria-label="スイッチへのジャンプ">
+  <a href="#sw1" data-role="root"><span class="role-dot"></span>SW1 — MST1 root</a>
+  <a href="#sw2" data-role="root"><span class="role-dot"></span>SW2 — MST2 root</a>
+  <a href="#sw3"><span class="role-dot"></span>SW3 — non-root</a>
+  <a href="#sw4"><span class="role-dot"></span>SW4 — non-root</a>
+</nav>
+
+<section class="overview">
+  <div class="panel">
+    <h2>物理トポロジ(実インターフェース)</h2>
+    <div class="topo-graph">
+      <div class="topo-row"><span class="node">SW1 Et0/0</span><span class="wire"></span><span class="node">Et0/0 SW2</span><span class="ifaces">trunk, VLAN 10/20/30/40</span></div>
+      <div class="topo-row"><span class="node">SW1 Et0/1</span><span class="wire"></span><span class="node">Et0/0 SW3</span><span class="ifaces">trunk, VLAN 10/20/30/40</span></div>
+      <div class="topo-row"><span class="node">SW2 Et0/1</span><span class="wire"></span><span class="node">Et0/0 SW4</span><span class="ifaces">trunk, VLAN 10/20/30/40</span></div>
+      <div class="topo-row"><span class="node">SW3 Et0/1</span><span class="wire"></span><span class="node">Et0/1 SW4</span><span class="ifaces">trunk, VLAN 10/20/30/40</span></div>
+    </div>
+  </div>
+  <div class="panel">
+    <h2>VLAN / MSTインスタンス対応</h2>
+    <table class="vlan-table">
+      <thead><tr><th>VLAN</th><th>名前</th><th>インスタンス</th></tr></thead>
+      <tbody>
+        <tr><td class="vlan-id tabular">10</td><td>USERS-A</td><td><span class="badge mst1">MST1</span></td></tr>
+        <tr><td class="vlan-id tabular">20</td><td>USERS-B</td><td><span class="badge mst1">MST1</span></td></tr>
+        <tr><td class="vlan-id tabular">30</td><td>SERVERS-A</td><td><span class="badge mst2">MST2</span></td></tr>
+        <tr><td class="vlan-id tabular">40</td><td>SERVERS-B</td><td><span class="badge mst2">MST2</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<h2 class="section-title">スイッチ別パラメータ</h2>
+<div class="sheet-grid">
+
+  <!-- SW1 -->
+  <article class="sheet" id="sw1">
+    <div class="sheet-head">
+      <div class="hostname">SW1<span class="mac">aabb.cc00.0c00</span></div>
+      <span class="role-pill has-root">MST1 root primary</span>
+    </div>
+    <div class="sheet-body">
+      <div class="field-grid">
+        <div><div class="k">spanning-tree mode</div><div class="v">mst</div></div>
+        <div><div class="k">region</div><div class="v">CML-MST rev.1</div></div>
+        <div><div class="k">vlan10 svi(試験専用)</div><div class="v">192.168.10.1/24</div></div>
+        <div><div class="k">cml node id</div><div class="v">84feee55…c58c</div></div>
+      </div>
+      <div class="stp-instances">
+        <div class="stp-row"><span class="label">MST1</span><span class="prio">vlan 10,20 &middot; priority <b class="tabular">24576</b></span><span class="status-chip root">root</span></div>
+        <div class="stp-row"><span class="label">MST2</span><span class="prio">vlan 30,40 &middot; priority <b class="tabular">28672</b></span><span class="status-chip member">secondary</span></div>
+      </div>
+      <table class="if-table">
+        <caption>インターフェース</caption>
+        <thead><tr><th>Port</th><th>隣接</th><th>Mode</th><th>Allowed VLAN</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td class="port">Et0/0</td><td>SW2 Et0/0</td><td>trunk (dot1q)</td><td>10,20,30,40</td><td><span class="up-dot"></span>connected</td></tr>
+          <tr><td class="port">Et0/1</td><td>SW3 Et0/0</td><td>trunk (dot1q)</td><td>10,20,30,40</td><td><span class="up-dot"></span>connected</td></tr>
+          <tr><td class="port">Et0/2</td><td>—</td><td>—</td><td>—</td><td><span class="down-dot"></span>shutdown</td></tr>
+          <tr><td class="port">Et0/3</td><td>—</td><td>—</td><td>—</td><td><span class="down-dot"></span>shutdown</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <!-- SW2 -->
+  <article class="sheet" id="sw2">
+    <div class="sheet-head">
+      <div class="hostname">SW2<span class="mac">aabb.cc00.0d00</span></div>
+      <span class="role-pill has-root">MST2 root primary</span>
+    </div>
+    <div class="sheet-body">
+      <div class="field-grid">
+        <div><div class="k">spanning-tree mode</div><div class="v">mst</div></div>
+        <div><div class="k">region</div><div class="v">CML-MST rev.1</div></div>
+        <div><div class="k">vlan10 svi(試験専用)</div><div class="v">192.168.10.2/24</div></div>
+        <div><div class="k">cml node id</div><div class="v">100ec2ea…feec0</div></div>
+      </div>
+      <div class="stp-instances">
+        <div class="stp-row"><span class="label">MST1</span><span class="prio">vlan 10,20 &middot; priority <b class="tabular">28672</b></span><span class="status-chip member">secondary</span></div>
+        <div class="stp-row"><span class="label">MST2</span><span class="prio">vlan 30,40 &middot; priority <b class="tabular">24576</b></span><span class="status-chip root">root</span></div>
+      </div>
+      <table class="if-table">
+        <caption>インターフェース</caption>
+        <thead><tr><th>Port</th><th>隣接</th><th>Mode</th><th>Allowed VLAN</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td class="port">Et0/0</td><td>SW1 Et0/0</td><td>trunk (dot1q)</td><td>10,20,30,40</td><td><span class="up-dot"></span>connected</td></tr>
+          <tr><td class="port">Et0/1</td><td>SW4 Et0/0</td><td>trunk (dot1q)</td><td>10,20,30,40</td><td><span class="up-dot"></span>connected</td></tr>
+          <tr><td class="port">Et0/2</td><td>—</td><td>—</td><td>—</td><td><span class="down-dot"></span>shutdown</td></tr>
+          <tr><td class="port">Et0/3</td><td>—</td><td>—</td><td>—</td><td><span class="down-dot"></span>shutdown</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </article>
+
+  <!-- SW3 -->
+  <article class="sheet" id="sw3">
+    <div class="sheet-head">
+      <div class="hostname">SW3<span class="mac">aabb.cc00.0e00</span></div>
+      <span class="role-pill">non-root</span>
+    </div>
+    <div class="sheet-body">
+      <div class="field-grid">
+        <div><div class="k">spanning-tree mode</div><div class="v">mst</div></div>
+        <div><div class="k">region</div><div class="v">CML-MST rev.1</div></div>
+        <div><div class="k">vlan10 svi(試験専用)</div><div class="v">192.168.10.3/24</div></div>
+        <div><div class="k">cml node id</div><div class="v">859e53b0…e2e9a9</div></div>
+      </div>
+      <div class="stp-instances">
+        <div class="stp-row"><span class="label">MST1</span><span class="prio">vlan 10,20 &middot; priority <b class="tabular">32768</b> (既定)</span><span class="status-chip member">member</span></div>
+        <div class="stp-row"><span class="label">MST2</span><span class="prio">vlan 30,40 &middot; priority <b class="tabular">32768</b> (既定)</span><span class="status-chip member">member</span></div>
+      </div>
+      <table class="if-table">
+        <caption>インターフェース</caption>
+        <thead><tr><th>Port</th><th>隣接</th><th>Mode</th><th>Allowed VLAN</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td class="port">Et0/0</td><td>SW1 Et0/1</td><td>trunk (dot1q)</td><td>10,20,30,40</td><td><span class="up-dot"></span>connected</td></tr>
+          <tr><td class="port">Et0/1</td><td>SW4 Et0/1</td><td>trunk (dot1q)</td><td>10,20,30,40</td><td><span class="up-dot"></span>connected*</td></tr>
+          <tr><td class="port">Et0/2</td><td>—</td><td>—</td><td>—</td><td><span class="down-dot"></span>shutdown</td></tr>
+          <tr><td class="port">Et0/3</td><td>—</td><td>—</td><td>—</td><td><span class="down-dot"></span>shutdown</td></tr>
+        </tbody>
+      </table>
+      <div class="note-box"><b>Note</b> *Et0/1はMST2でAlternate/Blocking(MST1はForwarding)。試験2参照。</div>
+    </div>
+  </article>
+
+  <!-- SW4 -->
+  <article class="sheet" id="sw4">
+    <div class="sheet-head">
+      <div class="hostname">SW4<span class="mac">aabb.cc00.0f00</span></div>
+      <span class="role-pill">non-root</span>
+    </div>
+    <div class="sheet-body">
+      <div class="field-grid">
+        <div><div class="k">spanning-tree mode</div><div class="v">mst</div></div>
+        <div><div class="k">region</div><div class="v">CML-MST rev.1</div></div>
+        <div><div class="k">vlan10 svi(試験専用)</div><div class="v">192.168.10.4/24</div></div>
+        <div><div class="k">cml node id</div><div class="v">c4071329…5d0c5</div></div>
+      </div>
+      <div class="stp-instances">
+        <div class="stp-row"><span class="label">MST1</span><span class="prio">vlan 10,20 &middot; priority <b class="tabular">32768</b> (既定)</span><span class="status-chip member">member</span></div>
+        <div class="stp-row"><span class="label">MST2</span><span class="prio">vlan 30,40 &middot; priority <b class="tabular">32768</b> (既定)</span><span class="status-chip member">member</span></div>
+      </div>
+      <table class="if-table">
+        <caption>インターフェース</caption>
+        <thead><tr><th>Port</th><th>隣接</th><th>Mode</th><th>Allowed VLAN</th><th>State</th></tr></thead>
+        <tbody>
+          <tr><td class="port">Et0/0</td><td>SW2 Et0/1</td><td>trunk (dot1q)</td><td>10,20,30,40</td><td><span class="up-dot"></span>connected</td></tr>
+          <tr><td class="port">Et0/1</td><td>SW3 Et0/1</td><td>trunk (dot1q)</td><td>10,20,30,40</td><td><span class="up-dot"></span>connected*</td></tr>
+          <tr><td class="port">Et0/2</td><td>—</td><td>—</td><td>—</td><td><span class="down-dot"></span>shutdown</td></tr>
+          <tr><td class="port">Et0/3</td><td>—</td><td>—</td><td>—</td><td><span class="down-dot"></span>shutdown</td></tr>
+        </tbody>
+      </table>
+      <div class="note-box"><b>Note</b> *Et0/1はMST1でAlternate/Blocking(MST2はForwarding)。試験4〜6ではこのスイッチのMSTリージョン設定のみを変更。</div>
+    </div>
+  </article>
+
+</div>
+
+<footer class="page">
+  <span>全パラメータは <code>configs/SW{1-4}.cfg</code> の実 <code>show running-config</code> 出力から転記(推測値なし)。</span>
+  <span><a href="https://github.com/yasuwo070809/mst-verification-lab" target="_blank" rel="noopener">yasuwo070809/mst-verification-lab</a></span>
+</footer>
