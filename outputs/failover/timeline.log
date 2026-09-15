@@ -1,0 +1,38 @@
+23:24:37.759  iter=1 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 3/3/3 ms
+23:24:38.140  iter=1 SW4 MST1 ports: Et0/0=[Et0/0                            Root FWD 2000000   128.1    P2p ] Et0/1=[Et0/1                            Altn BLK 2000000   128.2    P2p ]
+23:24:38.444  iter=2 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+23:24:38.792  iter=2 SW4 MST1 ports: Et0/0=[Et0/0                            Root FWD 2000000   128.1    P2p ] Et0/1=[Et0/1                            Altn BLK 2000000   128.2    P2p ]
+23:24:39.144  iter=3 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 3/5/7 ms
+23:24:39.145  iter=3 FAILURE INJECTED: SW2 interface Ethernet0/1 shutdown (link SW2--SW4)
+23:24:39.853  iter=3 SW4 MST1 ports: Et0/0=[Et0/0                            Root FWD 2000000   128.1    P2p ] Et0/1=[Et0/1                            Altn BLK 2000000   128.2    P2p ]
+23:24:42.257  iter=4 ping: Success rate is 0 percent (0/2)
+23:24:42.620  iter=4 SW4 MST1 ports: Et0/0=[Et0/0                            Root FWD 2000000   128.1    P2p ] Et0/1=[Et0/1                            Altn BLK 2000000   128.2    P2p ]
+23:24:45.003  iter=5 ping: Success rate is 0 percent (0/2)
+23:24:45.360  iter=5 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:45.676  iter=6 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/2 ms
+23:24:45.992  iter=6 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:46.354  iter=7 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 1/2/4 ms
+23:24:46.717  iter=7 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:47.031  iter=8 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+23:24:47.378  iter=8 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:47.723  iter=9 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+23:24:48.036  iter=9 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:48.350  iter=10 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+23:24:48.670  iter=10 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:48.998  iter=11 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+23:24:49.300  iter=11 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:49.629  iter=12 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/2 ms
+23:24:49.630  iter=12 RESTORE: SW2 interface Ethernet0/1 no shutdown
+23:24:50.260  iter=12 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:50.603  iter=13 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/2 ms
+23:24:50.907  iter=13 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:51.222  iter=14 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/3/4 ms
+23:24:51.582  iter=14 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:51.914  iter=15 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/2 ms
+23:24:52.256  iter=15 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:52.561  iter=16 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/5/8 ms
+23:24:52.879  iter=16 SW4 MST1 ports: Et0/0=[Et0/0                            Desg BLK 2000000   128.1    P2p ] Et0/1=[Et0/1                            Root FWD 2000000   128.2    P2p ]
+23:24:53.242  iter=17 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+23:24:53.587  iter=17 SW4 MST1 ports: Et0/0=[Et0/0                            Root FWD 2000000   128.1    P2p ] Et0/1=[Et0/1                            Altn BLK 2000000   128.2    P2p ]
+23:24:53.933  iter=18 ping: Success rate is 100 percent (2/2), round-trip min/avg/max = 3/3/3 ms
+23:24:54.292  iter=18 SW4 MST1 ports: Et0/0=[Et0/0                            Root FWD 2000000   128.1    P2p ] Et0/1=[Et0/1                            Altn BLK 2000000   128.2    P2p ]

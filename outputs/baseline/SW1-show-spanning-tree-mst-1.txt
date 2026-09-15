@@ -1,0 +1,12 @@
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+Root          this switch for MST1
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg FWD 2000000   128.1    P2p 
+Et0/1                            Desg FWD 2000000   128.2    P2p 
+
+SW1#

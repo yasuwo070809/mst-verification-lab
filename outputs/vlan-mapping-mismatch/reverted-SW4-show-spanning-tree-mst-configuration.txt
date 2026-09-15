@@ -1,0 +1,13 @@
+
+*Sep 15 14:28:58.335: %SYS-5-CONFIG_I: Configured from console by console
+SW4#show spanning-tree mst configuration
+Name      [CML-MST]
+Revision  1     Instances configured 3
+
+Instance  Vlans mapped
+--------  ---------------------------------------------------------------------
+0         1-9,11-19,21-29,31-39,41-4094
+1         10,20
+2         30,40
+-------------------------------------------------------------------------------
+SW4#

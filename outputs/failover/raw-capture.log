@@ -1,0 +1,437 @@
+--- iter 1 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 3/3/3 ms
+SW1#
+
+--- iter 1 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/0           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Root FWD 2000000   128.1    P2p 
+Et0/1                            Altn BLK 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 2 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+SW1#
+
+--- iter 2 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/0           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Root FWD 2000000   128.1    P2p 
+Et0/1                            Altn BLK 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 3 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 3/5/7 ms
+SW1#
+
+--- iter 3 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/0           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Root FWD 2000000   128.1    P2p 
+Et0/1                            Altn BLK 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 4 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+..
+Success rate is 0 percent (0/2)
+SW1#
+
+--- iter 4 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/0           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Root FWD 2000000   128.1    P2p 
+Et0/1                            Altn BLK 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 5 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+..
+Success rate is 0 percent (0/2)
+SW1#
+
+--- iter 5 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 6 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/2 ms
+SW1#
+
+--- iter 6 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 7 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 1/2/4 ms
+SW1#
+
+--- iter 7 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 8 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+SW1#
+
+--- iter 8 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 9 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+SW1#
+
+--- iter 9 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 10 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+SW1#
+
+--- iter 10 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 11 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+SW1#
+
+--- iter 11 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 12 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/2 ms
+SW1#
+
+--- iter 12 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 13 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/2 ms
+SW1#
+
+--- iter 13 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 14 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/3/4 ms
+SW1#
+
+--- iter 14 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 15 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/2 ms
+SW1#
+
+--- iter 15 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 16 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/5/8 ms
+SW1#
+
+--- iter 16 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/1           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Desg BLK 2000000   128.1    P2p 
+Et0/1                            Root FWD 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 17 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 2/2/3 ms
+SW1#
+
+--- iter 17 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/0           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Root FWD 2000000   128.1    P2p 
+Et0/1                            Altn BLK 2000000   128.2    P2p 
+
+SW4#
+
+--- iter 18 ping ---
+ping 192.168.10.4 repeat 2 timeout 1
+Type escape sequence to abort.
+Sending 2, 100-byte ICMP Echos to 192.168.10.4, timeout is 1 seconds:
+!!
+Success rate is 100 percent (2/2), round-trip min/avg/max = 3/3/3 ms
+SW1#
+
+--- iter 18 show spanning-tree mst 1 (SW4) ---
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/0           cost          4000000   rem hops 18
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Root FWD 2000000   128.1    P2p 
+Et0/1                            Altn BLK 2000000   128.2    P2p 
+
+SW4#
+
+--- final show spanning-tree mst 1 detail (SW4) ---
+show spanning-tree mst 1 detail
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0f00  priority      32769 (32768 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/0           cost          4000000   rem hops 18
+
+Ethernet0/0 of MST1 is root forwarding 
+Port info             port id          128.1  priority    128  cost     2000000
+Designated root       address aabb.cc00.0c00  priority  24577  cost     2000000
+Designated bridge     address aabb.cc00.0d00  priority  28673  port id    128.2
+Timers: message expires in 5 sec, forward delay 0, forward transitions 3
+Bpdus (MRecords) sent 23, received 143
+
+Ethernet0/1 of MST1 is alternate blocking 
+Port info             port id          128.2  priority    128  cost     2000000
+Designated root       address aabb.cc00.0c00  priority  24577  cost     2000000
+Designated bridge     address aabb.cc00.0e00  priority  32769  port id    128.2
+Timers: message expires in 5 sec, forward delay 0, forward transitions 1
+Bpdus (MRecords) sent 151, received 149
+
+SW4#

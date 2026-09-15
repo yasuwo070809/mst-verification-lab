@@ -1,0 +1,26 @@
+
+*Sep 15 14:29:55.482: %SPANTREE-2-PVSTSIM_FAIL: Blocking root port Et0/0: Inconsitent inferior PVST BPDU received on VLAN 10, claiming root 32778:aabb.cc00.0c00
+SW3#
+*Sep 15 14:29:56.780: %SYS-5-CONFIG_I: Configured from console by console
+SW3#show spanning-tree summary
+Switch is in rapid-pvst mode
+Root bridge for: none
+EtherChannel misconfig guard            is enabled
+Extended system ID                      is enabled
+Portfast Default                        is disabled
+PortFast BPDU Guard Default            is disabled
+Portfast BPDU Filter Default           is disabled
+Loopguard Default                      is disabled
+UplinkFast                              is disabled
+BackboneFast                            is disabled
+Configured Pathcost method used is short
+
+Name                   Blocking Listening Learning Forwarding STP Active
+---------------------- -------- --------- -------- ---------- ----------
+VLAN0010                     0         0        0          2          2
+VLAN0020                     0         0        0          2          2
+VLAN0030                     0         0        0          2          2
+VLAN0040                     0         0        0          2          2
+---------------------- -------- --------- -------- ---------- ----------
+4 vlans                      0         0        0          8          8
+SW3#

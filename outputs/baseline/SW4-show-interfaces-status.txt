@@ -1,0 +1,8 @@
+show interfaces status
+
+Port         Name               Status       Vlan       Duplex  Speed Type
+Et0/0                           connected    trunk        full   auto 10/100/1000BaseTX
+Et0/1                           connected    trunk        full   auto 10/100/1000BaseTX
+Et0/2                           disabled     1            full   auto 10/100/1000BaseTX
+Et0/3                           disabled     1            full   auto 10/100/1000BaseTX
+SW4#

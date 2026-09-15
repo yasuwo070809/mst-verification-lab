@@ -1,0 +1,13 @@
+show spanning-tree mst 1
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0d00  priority      28673 (28672 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/0           cost          2000000   rem hops 19
+
+Interface                        Role Sts Cost      Prio.Nbr Type
+----------------                 ---- --- --------- -------- --------------------------------
+Et0/0                            Root FWD 2000000   128.1    P2p 
+Et0/1                            Desg FWD 2000000   128.2    P2p 
+
+SW2#

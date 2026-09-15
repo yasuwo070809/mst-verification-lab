@@ -1,0 +1,9 @@
+show spanning-tree root
+
+                                        Root    Hello Max Fwd
+MST Instance           Root ID          Cost    Time  Age Dly  Root Port
+---------------- -------------------- --------- ----- --- ---  ------------
+MST0             32768 aabb.cc00.0c00         0    2   20  15  Et0/0           
+MST1             24577 aabb.cc00.0c00   2000000    2   20  15  Et0/0           
+MST2             24578 aabb.cc00.0d00         0    2   20  15                  
+SW2#

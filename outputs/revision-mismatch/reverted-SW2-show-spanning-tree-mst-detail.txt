@@ -1,0 +1,65 @@
+show spanning-tree mst detail
+
+##### MST0    vlans mapped:   1-9,11-19,21-29,31-39,41-4094
+Bridge        address aabb.cc00.0d00  priority      32768 (32768 sysid 0)
+Root          address aabb.cc00.0c00  priority      32768 (32768 sysid 0)
+              port    Et0/0           path cost     0        
+Regional Root address aabb.cc00.0c00  priority      32768 (32768 sysid 0)
+                                      internal cost 2000000   rem hops 19
+Operational   hello time 2 , forward delay 15, max age 20, txholdcount 6 
+Configured    hello time 2 , forward delay 15, max age 20, max hops    20
+
+Ethernet0/0 of MST0 is root forwarding 
+Port info             port id          128.1  priority    128  cost     2000000
+Designated root       address aabb.cc00.0c00  priority  32768  cost           0
+Design. regional root address aabb.cc00.0c00  priority  32768  cost           0
+Designated bridge     address aabb.cc00.0c00  priority  32768  port id    128.1
+Timers: message expires in 5 sec, forward delay 0, forward transitions 2
+Bpdus sent 285, received 279
+
+Ethernet0/1 of MST0 is designated forwarding 
+Port info             port id          128.2  priority    128  cost     2000000
+Designated root       address aabb.cc00.0c00  priority  32768  cost           0
+Design. regional root address aabb.cc00.0c00  priority  32768  cost     2000000
+Designated bridge     address aabb.cc00.0d00  priority  32768  port id    128.2
+Timers: message expires in 0 sec, forward delay 0, forward transitions 1
+Bpdus sent 129, received 40
+
+##### MST1    vlans mapped:   10,20
+Bridge        address aabb.cc00.0d00  priority      28673 (28672 sysid 1)
+Root          address aabb.cc00.0c00  priority      24577 (24576 sysid 1)
+              port    Et0/0           cost          2000000   rem hops 19
+
+Ethernet0/0 of MST1 is root forwarding 
+Port info             port id          128.1  priority    128  cost     2000000
+Designated root       address aabb.cc00.0c00  priority  24577  cost           0
+Designated bridge     address aabb.cc00.0c00  priority  24577  port id    128.1
+Timers: message expires in 5 sec, forward delay 0, forward transitions 2
+Bpdus (MRecords) sent 285, received 279
+
+Ethernet0/1 of MST1 is designated forwarding 
+Port info             port id          128.2  priority    128  cost     2000000
+Designated root       address aabb.cc00.0c00  priority  24577  cost     2000000
+Designated bridge     address aabb.cc00.0d00  priority  28673  port id    128.2
+Timers: message expires in 0 sec, forward delay 0, forward transitions 1
+Bpdus (MRecords) sent 129, received 20
+
+##### MST2    vlans mapped:   30,40
+Bridge        address aabb.cc00.0d00  priority      24578 (24576 sysid 2)
+Root          this switch for MST2
+
+Ethernet0/0 of MST2 is designated forwarding 
+Port info             port id          128.1  priority    128  cost     2000000
+Designated root       address aabb.cc00.0d00  priority  24578  cost           0
+Designated bridge     address aabb.cc00.0d00  priority  24578  port id    128.1
+Timers: message expires in 0 sec, forward delay 0, forward transitions 1
+Bpdus (MRecords) sent 285, received 277
+
+Ethernet0/1 of MST2 is designated forwarding 
+Port info             port id          128.2  priority    128  cost     2000000
+Designated root       address aabb.cc00.0d00  priority  24578  cost           0
+Designated bridge     address aabb.cc00.0d00  priority  24578  port id    128.2
+Timers: message expires in 0 sec, forward delay 0, forward transitions 1
+Bpdus (MRecords) sent 129, received 20
+
+SW2#

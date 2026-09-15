@@ -1,0 +1,65 @@
+# mst-verification-lab topology (facts confirmed via CML API/console, not assumed)
+cml:
+  version: "2.10.0+build.13"
+  lab_title: "mst-verification-lab"
+  lab_id: "8cd6a53c-6870-4891-b51c-7ebe586f8360"
+  node_definition: "ioll2-xe"          # IOL-L2, IOS-XE 17.18
+  image_definition: "ioll2-xe-17-18-02"
+
+nodes:
+  - label: SW1
+    role: "MST1 root primary / MST2 root secondary"
+  - label: SW2
+    role: "MST1 root secondary / MST2 root primary"
+  - label: SW3
+    role: "non-root"
+  - label: SW4
+    role: "non-root (region-mismatch test target)"
+
+# Interface numbers below are the ACTUAL labels returned by
+# GET /api/v0/labs/{lab}/nodes/{node}/interfaces?data=true after link creation -
+# not assumed/guessed.
+links:
+  - a: { node: SW1, interface: Ethernet0/0 }
+    b: { node: SW2, interface: Ethernet0/0 }
+  - a: { node: SW1, interface: Ethernet0/1 }
+    b: { node: SW3, interface: Ethernet0/0 }
+  - a: { node: SW2, interface: Ethernet0/1 }
+    b: { node: SW4, interface: Ethernet0/0 }
+  - a: { node: SW3, interface: Ethernet0/1 }
+    b: { node: SW4, interface: Ethernet0/1 }
+
+unused_interfaces:
+  # left administratively shut down; not part of the requested topology
+  - { node: SW1, interfaces: [Ethernet0/2, Ethernet0/3] }
+  - { node: SW2, interfaces: [Ethernet0/2, Ethernet0/3] }
+  - { node: SW3, interfaces: [Ethernet0/2, Ethernet0/3] }
+  - { node: SW4, interfaces: [Ethernet0/2, Ethernet0/3] }
+
+vlans:
+  10: USERS-A
+  20: USERS-B
+  30: SERVERS-A
+  40: SERVERS-B
+
+mst_region:
+  name: CML-MST
+  revision: 1
+  instance_1_vlans: [10, 20]
+  instance_2_vlans: [30, 40]
+
+trunk_config_per_link_interface:
+  - switchport trunk encapsulation dot1q   # confirmed supported on ioll2-xe/17.18, see docs/test-results.md
+  - switchport mode trunk
+  - switchport trunk allowed vlan 10,20,30,40
+  - no shutdown
+
+test_only_addition:
+  # NOT part of the original spec - added only to give test 3 (fast convergence)
+  # a real ping endpoint pair, since the topology has no hosts/IP addressing.
+  description: "Temporary VLAN10 SVI IPs used as ping endpoints for the failover test"
+  addresses:
+    SW1: 192.168.10.1/24
+    SW2: 192.168.10.2/24
+    SW3: 192.168.10.3/24
+    SW4: 192.168.10.4/24
